@@ -1,0 +1,29 @@
+<section class="container p-4">
+    <h1 class="text-center">ADMIN LOGIN</h1>
+    <app-msg-box msgType="Info" *ngIf="infoMsg">
+        <strong>{{infoMsg}}</strong>
+      </app-msg-box>
+    
+      <app-msg-box msgType="Error" *ngIf="errMsg">
+        <strong>{{errMsg}}</strong>
+      </app-msg-box>
+    <div class="col-sm-4 mx-auto">
+        <form  #f="ngForm" (ngSubmit)="onSubmit()" >
+          <div class="input-group">
+            <input type="number" class="form-control" placeholder=" Enter Admin Id" [(ngModel)]="adminId" name="aid"
+              required />
+            <div class="input-group-append">
+              <button class="btn btn-info" type="submit" [disabled]="f.invalid">
+                Sign In
+              </button>
+            </div>
+          </div>
+          </form> 
+          </div>
+          <div class="col-sm-4 mx-auto mt-5"> 
+            <a class="btn btn-info btn-info" routerLink="/register1"> 
+            Don't have an account? <strong>Sign Up</strong> 
+            </a> 
+         </div>
+</section>
+    

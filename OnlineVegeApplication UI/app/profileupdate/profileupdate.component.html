@@ -1,0 +1,120 @@
+<div class="col-sm-6 mx-auto">
+    <h3><i class="fa fa-user-circle" aria-hidden="true"></i> {{ isEditing ? "Edit" : " "}} UPDATE PROFILE</h3>
+    <app-msg-box msgType="Error" *ngIf="errorMessage">
+      {{errorMessage}}
+    </app-msg-box>
+    
+    <form class="form" [formGroup]="customerForm" (ngSubmit)="handleSubmit()">
+  
+        <div class="form-group">
+            <label class="form-control-label">Customer Id:</label>
+            <input type="number" formControlName="customerId" class="form-control" />
+            <div class="alert alert-danger" *ngIf="customerIdfc.invalid && (customerIdfc.touched || customerIdfc.dirty)">
+              <span *ngIf="customerIdfc.errors.required">This field is mandate</span>
+        
+          </div>
+            </div>
+  
+         <div class="form-group">
+            <label class="form-control-label">Full Name:</label>
+            <input type="text" formControlName="name" class="form-control" />
+            <div class="alert alert-danger" *ngIf="namefc.invalid && (namefc.touched || namefc.dirty)">
+                <span *ngIf="namefc.errors.required">This field is mandate</span>
+                <span *ngIf="namefc.errors.minLength">Minimum 3 characters expected</span>
+            </div>
+        </div>
+  
+        <div class="form-group">
+          <label class="form-control-label">Mobile :</label>
+          <input type="text" formControlName="mobileNumber" class="form-control" />
+          <div class="alert alert-danger" *ngIf="this.mobileNumberfc.invalid && (this.mobileNumberfc.touched || this.mobileNumberfc.dirty)">
+              <span *ngIf="mobileNumberfc.errors.required">This field is mandate</span>
+              <span *ngIf="mobileNumberfc.errors.pattern">Must contain 10 digits</span>
+          </div>
+      </div>
+  
+      <div class="form-group">
+        <label class="form-control-label">Email ID :</label>
+        <input type="email" formControlName="emailId" class="form-control" />
+        <div class="alert alert-danger" *ngIf="this.emailIdfc.invalid && (this.emailIdfc.touched || this.emailIdfc.dirty)">
+            <span *ngIf="emailIdfc.errors.required">This field is mandate</span>
+        </div>
+    </div>
+  
+        <div class="form-group">
+            <label class="form-control-label">Password :</label>
+            <input type="text" formControlName="password" class="form-control" />
+            <div class="alert alert-danger" *ngIf="passwordfc.invalid && (passwordfc.touched || passwordfc.dirty)">
+                <span *ngIf="passwordfc.errors.required">This field is mandate</span>
+               
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label class="form-control-label">Flat No:</label>
+            <input type="text" formControlName="flatNo" class="form-control" />
+            <div class="alert alert-danger" *ngIf="this.flatNofc.invalid && (this.flatNofc.touched || this.flatNofc.dirty)">
+                <span *ngIf="flatNofc.errors.required">This field is mandate</span>
+            </div>
+        </div>
+  
+  
+  
+        <div class="form-group">
+          <label class="form-control-label">Building Name:</label>
+          <input type="text" formControlName="buildingName" class="form-control" />
+          <div class="alert alert-danger" *ngIf="this.buildingNamefc.invalid && (this.buildingNamefc.touched || this.buildingNamefc.dirty)">
+              <span *ngIf="buildingNamefc.errors.required">This field is mandate</span>
+          </div>
+      </div>
+  
+      <div class="form-group">
+        <label class="form-control-label">Area:</label>
+        <input type="text" formControlName="area" class="form-control" />
+        <div class="alert alert-danger" *ngIf="this.areafc.invalid && (this.areafc.touched || this.areafc.dirty)">
+            <span *ngIf="areafc.errors.required">This field is mandate</span>
+        </div>
+    </div>
+  
+    <div class="form-group">
+      <label class="form-control-label">City:</label>
+      <input type="text" formControlName="city" class="form-control" />
+      <div class="alert alert-danger" *ngIf="this.cityfc.invalid && (this.cityfc.touched || this.cityfc.dirty)">
+          <span *ngIf="cityfc.errors.required">This field is mandate</span>
+      </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="form-control-label">State:</label>
+    <input type="text" formControlName="state" class="form-control" />
+    <div class="alert alert-danger" *ngIf="this.statefc.invalid && (this.statefc.touched || this.statefc.dirty)">
+        <span *ngIf="statefc.errors.required">This field is mandate</span>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="form-control-label">Pin Code:</label>
+    <input type="number" formControlName="pincode" class="form-control" />
+    <div class="alert alert-danger" *ngIf="this.pincodefc.invalid && (this.pincodefc.touched || this.pincodefc.dirty)">
+        <span *ngIf="pincodefc.errors.required">This field is mandate</span>
+    </div>
+  </div>
+  
+  <!-- <div class="form-group">
+      <button class="btn btn-secondary btn-block">
+        {{isEditing?"Save":"Sign Up"}}
+      </button>
+    </div> -->
+        
+       <button class="btn btn-block btn-primary" [disabled]="customerForm.invalid">
+          UPDATE
+        </button> 
+    </form> 
+  </div> 
+  <!-- <a class="btn btn-sm btn-info" routerLink="/dashboard"  href="/">BACK</a> -->
+  
+  
+  
+  
+        
+  

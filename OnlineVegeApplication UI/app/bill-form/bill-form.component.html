@@ -1,0 +1,52 @@
+<div class="col-sm-6 mx-auto">
+    <h3>{{ isEditing ? "Update" : "New"}} Bill</h3>
+    
+    <form class="form" [formGroup]="billForm" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <label class="form-control-label">Billing Id:</label>
+            <input type="number" formControlName="billingId" class="form-control"  />
+            <div class="alert alert-danger" *ngIf="billingIdfc.invalid && (billingIdfc.touched || billingIdfc.dirty)">
+                <span *ngIf="billingIdfc.errors.required">This field is mandatory</span>
+            </div>
+            </div>
+        <div class="form-group">
+            <label class="form-control-label">Transaction Mode:</label>
+            <input type="text" formControlName="transactionMode" class="form-control" />
+            <div class="alert alert-danger" *ngIf="transactionModefc.invalid && (transactionModefc.touched || transactionModefc.dirty)">
+                <span *ngIf="transactionModefc.errors.required">This field is mandatory</span>
+               </div>
+
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">Transaction Date :</label>
+            <input type="date" formControlName="transactionDate" class="form-control" />
+            <div class="alert alert-danger" *ngIf="transactionDatefc.invalid && (transactionDatefc.touched || transactionDatefc.dirty)">
+                <span *ngIf="transactionDatefc.errors.required">This field is mandatory</span>
+            </div>
+        </div>
+
+      
+        <div class="form-group">
+            <label class="form-control-label">Transaction Status :</label>
+            <input type="text" formControlName="transactionStatus" class="form-control" />
+            <div class="alert alert-danger" *ngIf="transactionStatusfc.invalid && (transactionStatusfc.touched || transactionStatusfc.dirty)">
+                <span *ngIf="transactionStatusfc.errors.required">This field is mandatory</span>
+               
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">Order No :</label>
+            <input type="number" formControlName="orderNo" class="form-control" />
+            <div class="alert alert-danger" *ngIf="this.orderfc.invalid && (this.orderfc.touched || this.orderfc.dirty)">
+                <span *ngIf="orderfc.errors.required">This field is mandatory</span>
+                
+            </div>
+        </div>
+      
+        <button class="btn btn-block btn-primary" [disabled]="billForm.invalid">
+            Save
+        </button>
+    </form>
+</div>
+<a class="btn btn-sm btn-info" routerLink="/dashboard1" ><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</a>
+

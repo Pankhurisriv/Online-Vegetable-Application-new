@@ -1,0 +1,52 @@
+
+<div class="col-sm-6 mx-auto">
+    <h3><i class="fa fa-plus" aria-hidden="true"></i> Add Feedback</h3>
+    <form class="form" [formGroup]="feedbackForm" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <label class="form-control-label">Feedback Id:</label>
+            <input type="number" formControlName="feedbackId" class="form-control" />   
+            <div class="alert alert-danger" *ngIf="feedbackIdfc.invalid && (feedbackIdfc.touched || feedbackIdfc.dirty)">
+                <span *ngIf="feedbackIdfc.errors.required">This field is mandate</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">Customer Id:</label>
+            <input type="number" formControlName="customerId" class="form-control" />
+            <div class="alert alert-danger" *ngIf="customerIdfc.invalid && (customerIdfc.touched || customerIdfc.dirty)">
+              <span *ngIf="customerIdfc.errors.required">This field is mandate</span>
+              
+          </div>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label">Vegetable Id:</label>
+                <input type="number" formControlName="vegId" class="form-control" />
+                <div class="alert alert-danger" *ngIf="vegIdfc.invalid && (vegIdfc.touched || vegIdfc.dirty)">
+                    <span *ngIf="vegIdfc.errors.required">This field is mandate</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label">Rating:</label>
+                <input type="number" formControlName="rating" class="form-control" />
+                <div class="alert alert-danger" *ngIf="this.ratingfc.invalid && (this.ratingfc.touched || this.ratingfc.dirty)">
+                    <span *ngIf="ratingfc.errors.required">This field is mandate</span>
+                  
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label">Comments:</label>
+                <input type="text" formControlName="comments" class="form-control" />
+                <div class="alert alert-danger" *ngIf="this.commentsfc.invalid && (this.commentsfc.touched || this.commentsfc.dirty)">
+                    <span *ngIf="commentsfc.errors.required">This field is mandate</span>
+                   
+                </div>
+            </div>
+        
+            <button class="btn btn-block btn-info" [disabled]="feedbackForm.invalid">
+                SUBMIT
+            </button>
+          
+        
+      
+             
+    </form>
+</div>        

@@ -1,0 +1,42 @@
+<h3>Feedback  Of All Customers</h3>  
+<app-msgbox *ngIf="!err && !feedback">
+    <strong>loading ...please wait ...</strong>
+</app-msgbox>
+
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{ err }}</strong>
+</app-msgbox>
+
+<a class="btn btn-sm btn-info"  routerLink="/dashboard1" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
+
+<table class="table table-bordered table-hover" *ngIf="feedback">
+    <thead>
+    <tr>
+    <th>Feedback Id </th>
+	<th>CustomerId</th> 
+    <th>Veg ID</th>
+    <th>Rating</th> 
+    <th>Comments</th>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of feedback">
+            <td>{{ e.feedbackId }} </td>
+            <td>{{ e.customerId }} </td>
+             <td>{{ e.vegId}}
+             <td>{{ e.rating}} </td>
+            <td>{{ e.comments}} </td>
+
+          
+
+           
+            
+          
+        </tr>
+    </tbody>
+</table>
+
+
+

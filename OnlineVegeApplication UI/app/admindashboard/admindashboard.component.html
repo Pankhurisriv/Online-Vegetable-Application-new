@@ -1,0 +1,13 @@
+<app-navbar-admin></app-navbar-admin>
+
+<section class="container-fluid p-4">
+  <h4>Welcome {{admin.name}}</h4>
+
+  <app-msg-box msgType="Info" *ngIf="infoMsg">
+    {{infoMsg}}
+  </app-msg-box>
+
+  
+  <router-outlet></router-outlet>
+</section>
+

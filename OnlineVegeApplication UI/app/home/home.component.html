@@ -1,0 +1,58 @@
+ 
+   <!-- <style>
+    body{
+    background-image: url('./assets/veg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+  </style> -->
+
+  
+  
+
+  <section class="container p-4">
+  
+
+   
+    <h2 class="text-center">LOGIN</h2>
+  
+      <app-msg-box msgType="Info" *ngIf="infoMsg">
+        <strong>{{infoMsg}}</strong>
+      </app-msg-box>
+    
+      <app-msg-box msgType="Error" *ngIf="errMsg">
+        <strong>{{errMsg}}</strong>
+      </app-msg-box>
+  
+      
+    
+      <div class="col-sm-4 mx-auto">
+        <form  #f="ngForm" (ngSubmit)="onSubmit()" >
+          <div class="input-group">
+            <input type="number" class="form-control" placeholder=" Enter Customer Id" [(ngModel)]="customerId" name="cid"
+              required />
+            <div class="input-group-append">
+              <button class="btn btn-info" type="submit" [disabled]="f.invalid">
+                 <strong> Sign In</strong>
+              </button>
+            </div>
+          </div>
+          </form> 
+          </div>
+  
+          <div class="col-sm-4 mx-auto mt-5"> 
+         <a class="btn btn-info" routerLink="/register"> 
+         Don't have an account? <strong>Sign Up</strong> 
+         </a> 
+      </div>
+  
+  
+      <div class="col-sm-4 mx-auto mt-5"  > 
+        <a class="btn btn-info" routerLink="/login" > 
+            Login as Admin 
+        </a> 
+        </div> 
+      
+        <img [src]="imageUrl" width="100%" height="200%" sizes="100%"  >
+    </section> 
+   

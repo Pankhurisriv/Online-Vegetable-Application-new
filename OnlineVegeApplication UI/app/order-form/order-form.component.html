@@ -1,0 +1,66 @@
+<div class="col-sm-6 mx-auto">
+    <h3>{{ isEditing ? "Update" : "New"}} Order</h3>
+    
+    <form class="form" [formGroup]="orderForm" (ngSubmit)="handleSubmit()">
+
+        <div class="form-group">
+            <label class="form-control-label">Order No:</label>
+            <input type="number" formControlName="orderNo" class="form-control"  />
+            <div class="alert alert-danger" *ngIf="orderNofc.invalid && (orderNofc.touched || orderNofc.dirty)">
+                <span *ngIf="orderNofc.errors.required">This field is mandatory</span>
+            </div>
+            </div>
+        <div class="form-group">
+            <label class="form-control-label">Customer Id :</label>
+            <input type="number" formControlName="customerId" class="form-control" />
+            <div class="alert alert-danger" *ngIf="customerIdfc.invalid && (customerIdfc.touched || customerIdfc.dirty)">
+                <span *ngIf="customerIdfc.errors.required">This field is mandatory</span>
+               </div>
+
+        </div>
+        <div class="form-group">
+            <label class="form-control-label"> TotalAmount  :</label>
+            <input type="number" formControlName="totalAmount" class="form-control" />
+            <div class="alert alert-danger" *ngIf="totalAmountfc.invalid && (totalAmountfc.touched || totalAmountfc.dirty)">
+                <span *ngIf="totalAmountfc.errors.required">This field is mandatory</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">Order Date :</label>
+            <input type="date" formControlName="orderDate" class="form-control" />
+            <div class="alert alert-danger" *ngIf="this.orderDatefc.invalid && (this.orderDatefc.touched || this.orderDatefc.dirty)">
+                <span *ngIf="orderDatefc.errors.required">This field is mandatory</span>
+               
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">Status :</label>
+            <select formControlName="status" class="form-control">
+                <option *ngFor="let s of status" [value]="s">
+                    {{s}}
+                </option>
+            </select>
+                
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label">Veg Id :</label>
+                <input type="number" formControlName="vegId" class="form-control" />
+                <div class="alert alert-danger" *ngIf="vegIdfc.invalid && (vegIdfc.touched || vegIdfc.dirty)">
+                    <span *ngIf="vegIdfc.errors.required">This field is mandatory</span>
+                   
+                </div>
+            </div>
+        
+      
+        <button class="btn btn-block btn-primary" [disabled]="orderForm.invalid">
+            Save
+        </button>
+    </form>
+</div>
+<a class="btn btn-sm btn-info" routerLink="/dashboard1"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</a>
+
+
+
+
+

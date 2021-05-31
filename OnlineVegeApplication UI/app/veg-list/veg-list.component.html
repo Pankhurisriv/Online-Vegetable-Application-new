@@ -1,0 +1,42 @@
+<h3>Vegetable List</h3>  
+
+<app-msgbox *ngIf="!err && !veg">
+    <strong>loading ...please wait ...</strong>
+</app-msgbox>
+
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{ err }}</strong>
+</app-msgbox>
+
+<!-- <a routerLink="/stock" (click)="signOut()" href="/dashboard1">BACK</a>
+<button class="btn btn-block btn-primary" [disabled]="vegForm.invalid">
+    Save
+</button> -->
+
+
+<table class="table table-bordered table-hover" *ngIf="veg">
+    <thead>
+        <tr>
+            <th>Veg ID</th>
+            <th> Name</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of veg">
+            <td>{{ e.vegId }} </td>
+            <td>{{ e.name }} </td>
+            <td>{{ e.type}} </td>
+            <td>{{ e.price }} </td>
+            <td>{{ e.quantity}} </td>
+              
+            <td><button class="btn btn-sm btn-danger" (click)="delete(e.vegId)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button></td>
+            <td><a class="btn btn-sm btn-info" routerLink="/stock/edit/{{e.vegId}}"><i class="fa fa-spinner" aria-hidden="true"></i> Update</a></td>
+        </tr>
+    </tbody>
+</table>
+<a class="btn btn-sm btn-info" routerLink="/dashboard1"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</a>

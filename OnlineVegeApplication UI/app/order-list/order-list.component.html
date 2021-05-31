@@ -1,0 +1,45 @@
+<h3>Order List</h3>
+<app-msgBox *ngIf="!err && !order">
+    <strong>loading ...please wait...</strong>
+</app-msgBox>
+
+<app-msgBox *ngIf="err" [isError]="true">
+    <strong>{{ err }}</strong>
+</app-msgBox>
+
+<table class="table table-bordered table-hover" *ngIf="order">
+    <thead>
+        <tr>
+            <th>Order No</th>
+            <th>Customer Id </th>
+            <th>Total Amount</th> 
+            <th>Order Date</th> 
+            <th>Status </th>
+            <th>Vegetable ID</th>
+            <th>Action</th>
+            <th>Action</th>
+          
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of order">
+                    <td>{{ e.orderNo}} </td>
+                    <td>{{ e.customerId }} </td>
+                    <td>{{ e.totalAmount}} </td>
+                    <td>{{ e.orderDate}} </td>
+                    <td>{{ e.status}} </td>
+                    <td>{{ e.vegId }}</td>
+        
+        
+                   
+                    <td><button class="btn btn-sm btn-danger" (click)="delete(e.orderNo)"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</button></td>
+                    <td><a class="btn btn-sm btn-info" routerLink="/order/edit/{{e.orderNo}}"> <i class="fa fa-spinner" aria-hidden="true"></i>Update</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-sm btn-info" routerLink="/dashboard1" ><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</a>
+
+
+
+        

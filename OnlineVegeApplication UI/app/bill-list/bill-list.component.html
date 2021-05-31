@@ -1,0 +1,44 @@
+<h3>Billing Details Of all Customer</h3>  
+<app-msgbox *ngIf="!err && !bill">
+    <strong>Loading ...Please Wait ...</strong>
+</app-msgbox>
+
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{ err }}</strong>
+</app-msgbox>
+
+
+
+<table class="table table-bordered table-hover" *ngIf="bill">
+    <thead>
+        <tr>
+    <th>Billing Id </th>
+	<th>Transaction Mode</th> 
+	<th>Transaction Date</th> 
+	<th>Transaction Status</th>
+	<th>Order No</th>
+    <th>Action</th>
+    <th>Action</th>
+  
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of bill">
+            <td>{{ e.billingId }} </td>
+            <td>{{ e.transactionMode }} </td>
+            <td>{{ e.transactionDate}} </td>
+            <td>{{ e.transactionStatus }} </td>
+            <td>{{ e.orderNo}} </td>
+     
+
+
+           
+            <td><button class="btn btn-sm btn-danger" (click)="delete(e.billingId)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button></td>
+            <td><a class="btn btn-sm btn-info" routerLink="/bill/edit/{{e.billingId}}"> <i class="fa fa-spinner" aria-hidden="true"></i> Update</a></td>
+        </tr>
+    </tbody>
+</table>
+<a class="btn btn-sm btn-info"  routerLink="/dashboard1"  ><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</a>
+
+

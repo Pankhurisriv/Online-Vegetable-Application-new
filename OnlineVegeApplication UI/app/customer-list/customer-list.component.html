@@ -1,0 +1,47 @@
+<h3>Customer List</h3>  
+<app-msgbox *ngIf="!err && !customer">
+    <strong>loading ...please wait ...</strong>
+</app-msgbox>
+
+<app-msgbox *ngIf="err" [isError]="true">
+    <strong>{{ err }}</strong>
+</app-msgbox>
+
+
+
+<table class="table table-bordered table-hover" *ngIf="customer">
+    <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Mobile Number</th>
+            <th>Email ID</th>
+            <th>Flat No</th>
+            <th>Building Name</th>
+            <th>Area</th>
+            <th>City</th>
+            <th>State</th>
+            <th>PinCode</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of customer">
+            <td>{{ e.customerId }} </td>
+            <td>{{ e.name }} </td>
+            <td>{{ e.mobileNumber}} </td>
+            <td>{{ e.emailId}} </td>
+            <td>{{ e.address.flatNo}} </td>
+            <td>{{e.address.buildingName}}</td>
+            <td>{{e.address.area}}</td>
+            <td>{{e.address.city}}</td>
+            <td>{{e.address.state}}</td>
+            <td>{{e.address.pincode}}</td>
+            <td><button class="btn btn-sm btn-danger" (click)="delete(e.customerId)"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+<a class="btn btn-sm btn-info" routerLink="/dashboard1" ><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</a>
+
+

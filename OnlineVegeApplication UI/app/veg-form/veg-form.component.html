@@ -1,0 +1,61 @@
+<div class="col-sm-6 mx-auto">
+    <h3>{{ isEditing ? "Update" : "New"}} Vegetable</h3>
+    
+    <form class="form" [formGroup]="vegForm" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <label class="form-control-label">Vegetable Id:</label>
+            <input type="number" formControlName="vegId" class="form-control"  />
+            <div class="alert alert-danger" *ngIf="vegIdfc.invalid && (vegIdfc.touched || vegIdfc.dirty)">
+                <span *ngIf="vegIdfc.errors.required">This field is mandatory</span>
+            </div>
+            </div>
+        <div class="form-group">
+            <label class="form-control-label">Name:</label>
+            <input type="text" formControlName="name" class="form-control" />
+            <div class="alert alert-danger" *ngIf="namefc.invalid && (namefc.touched || namefc.dirty)">
+                <span *ngIf="namefc.errors.required">This field is mandatory</span>
+                <span *ngIf="namefc.errors.minLength">Minimum 3 characters expected</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">Type  :</label>
+            <input type="text" formControlName="type" class="form-control" />
+            <div class="alert alert-danger" *ngIf="typefc.invalid && (typefc.touched || typefc.dirty)">
+                <span *ngIf="typefc.errors.required">This field is mandatory</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">Price :</label>
+            <input type="number" formControlName="price" class="form-control" />
+            <div class="alert alert-danger" *ngIf="pricefc.invalid && (pricefc.touched || pricefc.dirty)">
+                <span *ngIf="pricefc.errors.required">This field is mandatory</span>
+               
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">Quantity :</label>
+            <input type="number" formControlName="quantity" class="form-control" />
+            <div class="alert alert-danger" *ngIf="this.quantityfc.invalid && (this.quantityfc.touched || this.quantityfc.dirty)">
+                <span *ngIf="quantityfc.errors.required">This field is mandatory</span>
+                <span *ngIf="quantityfc.errors.min">Minimum 1 is required</span>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <label class="form-control-label">Cart :</label>
+            <input type="number" formControlName="cart" class="form-control" />
+           
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">Order :</label>
+            <input type="number" formControlName="order" class="form-control" />
+           
+        </div> -->
+
+
+      
+        <button class="btn btn-block btn-primary" [disabled]="vegForm.invalid">
+            Save
+        </button>
+    </form>
+</div>
+<a class="btn btn-sm btn-info" routerLink="/dashboard1"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK</a>
